@@ -9,13 +9,15 @@ import Cake from './pages/Cake'
 import Memories from './pages/Memories'
 import Letter from './pages/Letter'
 import Finale from './pages/Finale'
+import { keepScreenAwake } from './lib/wakeLock'
 
 export default function App() {
   const location = useLocation()
 
   useEffect(() => {
-    preloadMusic()
-  }, [])
+  preloadMusic()
+  keepScreenAwake()
+}, [])
 
   return (
     <>

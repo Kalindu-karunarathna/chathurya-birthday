@@ -29,12 +29,13 @@ export default function Gate() {
   const navigate = useNavigate()
 
   const handleOpen = () => {
-    if (opened) return
-    setOpened(true)
-    startMusic()
-    burst()
-    setTimeout(() => navigate('/cake'), 2600)
-  }
+  if (opened) return
+  setOpened(true)
+  startMusic()
+  document.documentElement.requestFullscreen?.().catch(() => {})
+  burst()
+  setTimeout(() => navigate('/cake'), 2600)
+}
 
   return (
     <div className="relative h-full w-full">

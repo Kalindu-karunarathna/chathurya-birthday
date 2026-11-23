@@ -14,10 +14,12 @@
 }
 
 html, body, #root {
-  height: 100%;
+ height: 100%;
   margin: 0;
   overflow: hidden;
+  overscroll-behavior: none;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   background: linear-gradient(160deg, var(--color-blush), var(--color-lavender) 55%, var(--color-peach));
   font-family: var(--font-display);
   color: var(--color-plum);
