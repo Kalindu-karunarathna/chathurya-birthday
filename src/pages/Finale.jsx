@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Stars, Sparkles } from '@react-three/drei'
-import * as THREE from 'three'
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import confetti from 'canvas-confetti'
@@ -9,28 +8,6 @@ import Fireworks from '../components/Fireworks'
 
 const NIGHT = 'linear-gradient(180deg, #120a2e 0%, #2d1b69 42%, #7b3fa0 78%, #ff8fc0 100%)'
 const GLOW = 'drop-shadow-[0_2px_14px_rgba(91,58,110,0.7)]'
-
-function Moon() {
-  return (
-    <group position={[-4.2, 3.4, -8]}>
-      <mesh>
-        <sphereGeometry args={[1.1, 32, 32]} />
-        <meshBasicMaterial color="#fff6d6" toneMapped={false} />
-      </mesh>
-      <mesh scale={1.9}>
-        <sphereGeometry args={[1.1, 32, 32]} />
-        <meshBasicMaterial
-          color="#ffe9a8"
-          transparent
-          opacity={0.16}
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-          toneMapped={false}
-        />
-      </mesh>
-    </group>
-  )
-}
 
 export default function Finale() {
   const navigate = useNavigate()
@@ -120,7 +97,6 @@ export default function Finale() {
         <Canvas camera={{ position: [0, 0, 10], fov: 50 }} dpr={[1, 1.75]}>
           <Stars radius={50} depth={50} count={2200} factor={4} saturation={0.9} fade speed={1.2} />
           <Sparkles count={60} scale={[16, 9, 6]} size={6} speed={0.35} color="#ffe9a8" />
-          <Moon />
           <Fireworks fireRef={fireRef} />
         </Canvas>
       </div>
@@ -157,8 +133,16 @@ export default function Finale() {
                 animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
                 transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
               >
-                Happy Birthday, Chathurya! 🎂
+                Happy Birthday, Chathurya!
               </motion.h1>
+              <motion.div
+                className="mt-2 text-center text-5xl"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.25, type: 'spring', stiffness: 180, damping: 12 }}
+              >
+                🎂
+              </motion.div>
               <p className={`mt-3 font-hand text-4xl text-white ${GLOW}`}>May every wish you make come true ✨</p>
               <p className="mt-2 font-hand text-2xl text-[#ffe9a8]">Tap the sky for more fireworks</p>
             </motion.div>
