@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import confetti from 'canvas-confetti'
 import GiftBox from '../components/GiftBox'
-import Bubbles from '../components/Bubbles'
+
 import { startMusic } from '../lib/music'
 
 const COLORS = ['#ff6fa5', '#d9c8ff', '#fff3b8', '#c8f5e4', '#ffd9c2']
@@ -42,11 +42,16 @@ export default function Gate() {
       <Canvas camera={{ position: [0, 1.5, 8], fov: 45 }} dpr={[1, 1.75]}>
         <hemisphereLight args={['#ffffff', '#d9c8ff', 1.1]} />
         <directionalLight position={[4, 6, 5]} intensity={1.6} />
-        <Bubbles />
+       
         <Sparkles count={50} scale={[12, 7, 6]} size={7} speed={0.4} color="#ffffff" />
         <Sparkles count={30} scale={[12, 7, 6]} size={5} speed={0.3} color="#ff6fa5" />
-        <GiftBox opened={opened} onOpen={handleOpen} />
       </Canvas>
+
+      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+        <div className="pointer-events-auto">
+          <GiftBox opened={opened} onOpen={handleOpen} />
+        </div>
+      </div>
 
       {/* Text sits on top but lets taps through to the 3D scene */}
       <motion.div

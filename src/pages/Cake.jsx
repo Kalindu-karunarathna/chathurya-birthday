@@ -6,7 +6,6 @@ import confetti from 'canvas-confetti'
 import CakeScene from '../components/CakeScene'
 
 const NIGHT = 'linear-gradient(180deg, #120a2e 0%, #2d1b69 42%, #7b3fa0 78%, #ff8fc0 100%)'
-const DAWN = 'linear-gradient(180deg, #9ec5ff 0%, #d4b0ff 40%, #ffc4dc 74%, #ffe6bd 100%)'
 const COLORS = ['#ff6fa5', '#ffd166', '#9ff0d4', '#c9b3ff', '#ffffff']
 const TEXT_GLOW = 'drop-shadow-[0_2px_14px_rgba(91,58,110,0.7)]'
 
@@ -52,14 +51,7 @@ export default function Cake() {
       onPointerDown={() => (holding.current = true)}
       onContextMenu={(e) => e.preventDefault()}
     >
-      {/* Dawn sits underneath, night fades away on wish */}
-      <div className="absolute inset-0" style={{ background: DAWN }} />
-      <motion.div
-        className="absolute inset-0"
-        style={{ background: NIGHT }}
-        animate={{ opacity: wished ? 0 : 1 }}
-        transition={{ duration: 3, ease: 'easeInOut' }}
-      />
+      <div className="absolute inset-0" style={{ background: NIGHT }} />
 
       <div className="absolute inset-0">
         <Canvas camera={{ position: [0, 3, 11], fov: 40 }} dpr={[1, 1.75]}>
