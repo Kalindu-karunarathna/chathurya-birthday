@@ -59,7 +59,7 @@ export default function Gate() {
         animate={{ opacity: opened ? 0 : 1, y: opened ? -20 : 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-5xl font-bold text-berry drop-shadow-sm">For Chathurya 💖</h1>
+        <h1 className="text-5xl font-bold text-berry drop-shadow-sm">For Chathuu bolee 💖</h1>
         <p className="mt-2 font-hand text-3xl text-plum">I made you something magical</p>
       </motion.div>
 

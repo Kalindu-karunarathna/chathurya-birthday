@@ -74,7 +74,7 @@ export default function Cake() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
             >
-              <h1 className={`text-5xl font-bold text-white ${TEXT_GLOW}`}>Make a wish, Chathurya</h1>
+              <h1 className={`text-5xl font-bold text-white ${TEXT_GLOW}`}>Make a wish patiyoo</h1>
               <p className={`mt-2 font-hand text-3xl text-[#ffe9a8] ${TEXT_GLOW}`}>
                 Press and hold anywhere, and think of something beautiful
               </p>
